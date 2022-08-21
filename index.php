@@ -30,83 +30,10 @@ $meta_keywords = $row_general_settings["meta_keywords"];
 <!-- style="background-image: linear-gradient(to right, #A1C4FD ,  #C2E9FB)" -->
 
 <body style="background-image: url(images/star.png)">
-   <?php include "includes/header.php"; ?>
-   <?php include "includes/navbar.php" ?>
 
-  <div class="container col-md-12 col-xs-12 col-sm-12" style="background-color: white;margin-top: -22px;height: 60px;">
-    
-    <!-- <div class="row"> -->
-    <form class="navbar-form" method="get" action="results.php">
-       <center>
-           <div class="col-md-4 col-xs-6">
-          <div class="cd-dropdown-wrapper">
-             <a class="cd-dropdown-trigger" href="#0" style="  display: flex;
-                         -ms-transform: translateY(-50%);
-                         transform: translateY(-50%);     
-                         width: max-content; 
-                         border-radius: 10px; 
-                         background-color: rgb(79, 191, 168); 
-                         text-decoration: none; 
-                         font-size: 20px;">Shop by Department</a>
-             <nav class="cd-dropdown">
-                <a href="#0" class="cd-close">Close</a>
-                <ul class="cd-dropdown-content">
-                   <!-- <li>
-                <form class="cd-search">
-                   <input type="search" placeholder="Search...">
-                </form>
-             </li> -->
-                   <?php
-                   $query = "SELECT * FROM categories ORDER BY cat_id ASC";
-                   $result = mysqli_query($con, $query);
-                   while ($row = mysqli_fetch_array($result)) {
-                   ?>
-                      <li class="has-children">
-                         <a href="#"><?php echo $row["cat_title"]; ?></a>
-                         <ul class="cd-dropdown-icons is-hidden">
-                            <li class="go-back"><a href="#0">Menu</a></li>
-                            <li class="see-all"><a href="#">Go to Shop</a></li>
-                            <?php
-                            $query1 = "SELECT * FROM sub_category WHERE cat_id = '" . $row["cat_id"] . "' ORDER BY sub_id ASC";
-                            // echo $query1;
-                            $result1 = mysqli_query($con, $query1);
-                            while ($row1 = mysqli_fetch_array($result1)) {
-                            ?>
-                               <li>
-                                  <a class="cd-dropdown-item" style="padding: 0;" href="shopbycat.php?cat_id=<?= $row['cat_id'] ?>&sub_id=<?= $row1['sub_id'] ?>">
-                                     <h3><?php echo $row1["sub_cat_title"]; ?></h3>
-                                     <!-- <p>This is the item description</p> -->
-                                  </a>
-                               </li>
-                            <?php
-                            }
-                            ?>
-                         </ul>
-                      </li>
-                   <?php } ?>
+<?php include "includes/header.php" ?>
+<?php include "includes/navbar.php" ?>
 
-                </ul>
-             </nav>
-          </div>
-
-       </div>
-       <div class="input-group col-md-8 col-xs-6" style="border: solid 0px;">
-          <!-- input-group Starts -->
-          <input class="form-control" type="text" placeholder="Search" name="user_query" required>
-          <span class="input-group-btn">
-             <!-- input-group-btn Starts -->
-             <button type="submit" value="Search" name="search" class="btn btn-primary">
-                <i class="fa fa-search"></i>
-             </button>
-          </span>
-          <!-- input-group-btn Ends -->
-       </div>
-       </center>
-       
-    </form>
-
-    
-  </div>
 
   <div class="container" 
       >
@@ -342,7 +269,7 @@ $meta_keywords = $row_general_settings["meta_keywords"];
                <img src="images/line.png">
          </div>
               
-          <div class="col-md-6 " style="margin-top: -30px;float: left;:">
+          <div class="col-md-6 " style="margin-top: -30px;float: left;">
 
 
                <div class="col-md-6 col-sm-6 col-xs-12" style="border-radius: 5px;padding-bottom: 30px;padding-top: 30px;
